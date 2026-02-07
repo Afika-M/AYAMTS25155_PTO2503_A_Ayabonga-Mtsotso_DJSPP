@@ -11,16 +11,17 @@ strong {
 .header {
   display: flex;
   gap: 2rem;
-  background: white;
+  background: var(--card-bg);
   padding: 2rem;
+  border: 1px solid var(--border);
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px var(--card-shadow);
   margin-bottom: 2rem;
 }
 .backButton {
   background: none;
   border: none;
-  color: #333;
+  color: var(--text);
   font-size: 1rem;
   cursor: pointer;
   margin-bottom: 1rem;
@@ -43,14 +44,16 @@ strong {
 
 .title {
   font-size: 1.75rem;
-  font-weight: bold;
   margin-bottom: 0.5rem;
   margin-top: 0px;
+  text-align: center;
+  color: var(--text);
 }
 
 .description {
   color: #444;
   margin-bottom: 1rem;
+  color: var(--grey-text);
 }
 
 .genres {
@@ -58,6 +61,7 @@ strong {
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 1rem;
+  color: var(--grey-text);
 }
 
 .genreBadge {
@@ -69,7 +73,7 @@ strong {
 
 .metaInfo p {
   font-size: 0.875rem;
-  color: #555;
+  color: var(--grey-text);
   margin: 0.25rem 0;
 }
 
@@ -86,10 +90,11 @@ strong {
 }
 
 .seasonDetails {
-  background: white;
+  background: var(--card-bg);
   padding: 2rem;
+  border: 1px solid var(--boarder);
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px var(--card-shadow);
 }
 
 .seasonIntro {
@@ -143,9 +148,9 @@ strong {
 
 .episodeCard {
   display: flex;
-  background: #f9fafb;
+  background:var(--bg);
   padding: 1rem;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--boarder);
   border-radius: 6px;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
@@ -168,7 +173,7 @@ strong {
 }
 
 .episodeDesc {
-  color: #555;
+  color: var(--grey-text);
   font-size: 0.875rem;
 }
 

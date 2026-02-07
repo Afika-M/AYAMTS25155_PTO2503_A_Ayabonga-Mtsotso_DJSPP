@@ -3,8 +3,8 @@ import Header from "./components/UI/Header";
 import Home from "./pages/Home";
 import ShowDetail from "./pages/ShowDetail";
 import { PodcastProvider } from "./context/PodcastContext";
-
 /**
+
  * Root component of the Podcast Explorer app.
  *
  * - Wraps the application in the `PodcastProvider` context for global state.

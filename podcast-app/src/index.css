@@ -1,9 +1,27 @@
 :root {
   --grey-text: #555;
+  --bg: #f9f9f9;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --tag-bg: #eeeeee;
+  --border: #e5e5e5;
+  --hover-bg: #ffffff;
 }
 
-body {
+body [data-theme="dark"] {
+  --grey-text: #94a3b8;
+  --bg: #0b1220;
+  --card-bg:#121c2f;
+  --text: #f1f5f9;
+  --tag-bg: #24324f;
+  --border: #2b3a57;
+  --card-shadow: rgba(0, 0, 0, 0.35);
+}
+
+body{
   font-family: "Inter", sans-serif;
-  margin: 0;
-  background: #f9f9f9;
+  margin:0;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
