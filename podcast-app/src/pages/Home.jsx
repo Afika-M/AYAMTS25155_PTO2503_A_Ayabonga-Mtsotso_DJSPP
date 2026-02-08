@@ -6,6 +6,7 @@ import {
   Pagination,
   Loading,
   Error,
+  RecommendedCarousel,
 } from "../components";
 import styles from "./Home.module.css";
 import { genres } from "../data";
@@ -26,7 +27,7 @@ import { useContext } from "react";
  * @returns {JSX.Element} The home page content with filters, results, and feedback states.
  */
 export default function Home() {
-  const { podcasts, loading, error } = useContext(PodcastContext);
+  const { podcasts, allPodcasts, loading, error } = useContext(PodcastContext);
 
   return (
     <main className={styles.main}>
@@ -43,6 +44,7 @@ export default function Home() {
 
       {!loading && !error && (
         <>
+          <RecommendedCarousel podcasts={allPodcasts} />
           <PodcastGrid />
           <Pagination />
         </>
