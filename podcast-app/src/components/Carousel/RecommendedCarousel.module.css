@@ -1,0 +1,47 @@
+.carouselContainer {
+  margin: 1.5rem 0;
+  position: relative; /* needed so arrows position nicely */
+  scrollbar-width: none; /* hide scrollbar in Firefox */
+ 
+}
+
+.carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+  align-items: stretch;
+}
+ 
+/* Hide scrollbar in WebKit browsers (Chrome, Safari)*/
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carouselItem {
+  width: 260px;
+  flex: 0 0 260px;
+  display:flex;
+}
+
+/* 🔥 IMPORTANT: only affect PodcastCard images inside carousel */
+.carouselItem :global(img) {
+  height: 180px;      /* adjust to taste: 140–180 */
+  object-fit: cover;
+  display: block;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+}
+
+.left { left: -10px; }
+.right { right: -10px; }
+

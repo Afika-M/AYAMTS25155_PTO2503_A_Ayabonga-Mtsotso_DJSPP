@@ -1,4 +1,3 @@
 export * from "./Filters";
 export * from "./Podcasts";
-export * from "./UI";
-export * from "./Carousel";
+export * from "./UI";export * from "./Carousel";

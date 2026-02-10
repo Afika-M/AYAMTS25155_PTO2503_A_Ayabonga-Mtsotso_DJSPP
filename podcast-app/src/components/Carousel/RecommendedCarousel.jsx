@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import GenreTags from "../UI/GenreTags";
+import PodcastCard from "../Podcasts/PodcastCard";
 import styles from "./RecommendedCarousel.module.css";
 /**
  * RecommendedCarousel component to display recommended podcasts.
  *
-Props:
+ * @param {Object} props
  * @param {Object[]} podcasts - full list of podcasts from context
+ * @returns {JSX.Element} A horizontal carousel of recommended podcast cards.
  *
  * This component renders a horizontal carousel of podcast cards, allowing users
  * to scroll through recommended podcasts. Each card displays the podcast's image,
@@ -15,7 +15,6 @@ Props:
  */
 export default function RecommendedCarousel({ podcasts }) {
   const carouselRef = useRef(null);
-  const navigate = useNavigate();
 
   // State to hold the subset of podcasts currently visible in the carousel
   const [recommended, setRecommended] = useState([]);
@@ -33,43 +32,38 @@ export default function RecommendedCarousel({ podcasts }) {
   function scrollCarousel(direction) {
     const el = carouselRef.current;
     if (!el) return;
+
     const scrollAmount = el.offsetWidth * 0.8;
     const maxScroll = el.scrollWidth - el.clientWidth;
 
-    if (direction === "right" && el.scrollLeft >= maxScroll - 5) {
-      el.scrollTo({ left: 0, behavior: "smooth" });
-    } else {
-      el.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    if (direction === "right") {
+      if (el.scrollLeft >= maxScroll) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
     }
 
-    if (direction === "left" && el.scrollLeft <= 0) {
-      el.scrollTo({ left: maxScroll, behavior: "smooth" });
-    } else {
-      el.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    if (direction === "left") {
+      if (el.scrollLeft <= 0) {
+        el.scrollTo({ left: maxScroll, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      }
     }
   }
 
   return (
-    <div className={styles.carouselContainer}>
+    <section className={styles.carouselContainer}>
       <h2>Recommended for You</h2>
       <div className={styles.carousel} ref={carouselRef}>
         {recommended.map((podcast) => (
-          <div
-            key={podcast.id}
-            className={styles.card}
-            onClick={() => navigate(`/show/${podcast.id}`)}
-          >
-            <img
-              src={podcast.image}
-              alt={podcast.title}
-              className={styles.image}
-            />
-
-            <h3 className={styles.title}>{podcast.title}</h3>
-            <GenreTags genres={podcast.genres} />
+          <div key={podcast.id} className={styles.carouselItem}>
+            <PodcastCard podcast={podcast} />
           </div>
         ))}
       </div>
+
       <button
         className={`${styles.navButton} ${styles.left}`}
         onClick={() => scrollCarousel("left")}
@@ -82,6 +76,6 @@ export default function RecommendedCarousel({ podcasts }) {
       >
         &#8250;
       </button>
-    </div>
+    </section>
   );
 }
