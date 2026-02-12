@@ -25,9 +25,9 @@
   display:flex;
 }
 
-/* 🔥 IMPORTANT: only affect PodcastCard images inside carousel */
+
 .carouselItem :global(img) {
-  height: 180px;      /* adjust to taste: 140–180 */
+  height: 180px;     
   object-fit: cover;
   display: block;
 }

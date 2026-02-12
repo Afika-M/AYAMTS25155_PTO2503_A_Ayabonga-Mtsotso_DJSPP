@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // ← add this
+import { useNavigate } from "react-router-dom";
 import styles from "./PodcastDetail.module.css";
 import { formatDate } from "../../utils/formatDate";
 import GenreTags from "../UI/GenreTags";
+import FavouritesButton from "../UI/FavouritesButton";
 
 export default function PodcastDetail({ podcast, genres }) {
   const [selectedSeasonIndex, setSelectedSeasonIndex] = useState(0);
@@ -45,7 +46,7 @@ export default function PodcastDetail({ podcast, genres }) {
                 <strong>
                   {podcast.seasons.reduce(
                     (acc, s) => acc + s.episodes.length,
-                    0
+                    0,
                   )}{" "}
                   Episodes
                 </strong>
@@ -85,7 +86,7 @@ export default function PodcastDetail({ podcast, genres }) {
 
         <div className={styles.episodeList}>
           {season.episodes.map((ep, index) => (
-            <div key={index} className={styles.episodeCard}>
+            <div key={ep.id} className={styles.episodeCard}>
               <img className={styles.episodeCover} src={season.image} alt="" />
               <div className={styles.episodeInfo}>
                 <p className={styles.episodeTitle}>
@@ -93,6 +94,15 @@ export default function PodcastDetail({ podcast, genres }) {
                 </p>
                 <p className={styles.episodeDesc}>{ep.description}</p>
               </div>
+              <FavouritesButton
+                episode={{
+                  episodeId: ep.id,
+                  episodeTitle: ep.title,
+                  showId: podcast.id,
+                  showTitle: podcast.title,
+                  seasonTitle: season.title,
+                }}
+              />
             </div>
           ))}
         </div>
