@@ -15,7 +15,7 @@ export function FavouritesProvider({ children }) {
 
   function addFavourite(episode) {
     setFavourites((prev) => {
-      if (prev.some((f) => f.episodeId === episode.episodeId)) {
+      if (prev.some((ep) => ep.episodeId === episode.episodeId)) {
         return prev;
       }
       return [...prev, { ...episode, addedAt: new Date().toISOString() }];
@@ -23,11 +23,11 @@ export function FavouritesProvider({ children }) {
   }
 
   function removeFavourite(episodeId) {
-    setFavourites((prev) => prev.filter((f) => f.episodeId !== episodeId));
+    setFavourites((prev) => prev.filter((ep) => ep.episodeId !== episodeId));
   }
 
   function isFavourite(episodeId) {
-    return favourites.some((f) => f.episodeId === episodeId);
+    return favourites.some((ep) => ep.episodeId === episodeId);
   }
 
   return (

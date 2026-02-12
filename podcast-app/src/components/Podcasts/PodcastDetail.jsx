@@ -85,26 +85,35 @@ export default function PodcastDetail({ podcast, genres }) {
         </div>
 
         <div className={styles.episodeList}>
-          {season.episodes.map((ep, index) => (
-            <div key={ep.id} className={styles.episodeCard}>
-              <img className={styles.episodeCover} src={season.image} alt="" />
-              <div className={styles.episodeInfo}>
-                <p className={styles.episodeTitle}>
-                  Episode {index + 1}: {ep.title}
-                </p>
-                <p className={styles.episodeDesc}>{ep.description}</p>
+          {season.episodes.map((ep, index) => {
+            const episodeNumber = index + 1;
+            const episodeKey = `${podcast.id}-S${selectedSeasonIndex + 1}-E${episodeNumber}`;
+            return (
+              <div key={episodeKey} className={styles.episodeCard}>
+                <img
+                  className={styles.episodeCover}
+                  src={season.image}
+                  alt=""
+                />
+                <div className={styles.episodeInfo}>
+                  <p className={styles.episodeTitle}>
+                    Episode {episodeNumber}: {ep.title}
+                  </p>
+                  <p className={styles.episodeDesc}>{ep.description}</p>
+                </div>
+                <FavouritesButton
+                  episode={{
+                    episodeId: episodeKey,
+                    episodeNumber,
+                    episodeTitle: ep.title,
+                    showId: podcast.id,
+                    showTitle: podcast.title,
+                    seasonTitle: season.title,
+                  }}
+                />
               </div>
-              <FavouritesButton
-                episode={{
-                  episodeId: ep.id,
-                  episodeTitle: ep.title,
-                  showId: podcast.id,
-                  showTitle: podcast.title,
-                  seasonTitle: season.title,
-                }}
-              />
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
