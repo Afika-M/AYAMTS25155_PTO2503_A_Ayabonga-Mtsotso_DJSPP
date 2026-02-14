@@ -22,7 +22,7 @@
 }
 
 .empty {
-  color: var(--grey-text);
+  color: var(--text);
   margin-top: 0.75rem;
 }
 
@@ -109,6 +109,11 @@
   line-height: 1.3;
 }
 
+.episodeDesc {
+  color: var(--grey-text);
+  font-size: 0.875rem;
+}
+
 
 .removeBtn {
   background: none;
@@ -127,16 +132,15 @@
   background: rgba(0, 0, 0, 0.04);
 }
 
-
 .meta {
   margin: 0.35rem 0 0;
-  color: var(--grey-text);
+  color: var(--text);
   font-size: 0.85rem;
 }
 
 .added {
   margin: 0.35rem 0 0;
-  color: var(--grey-text);
+  color: var(--text);
   font-size: 0.8rem;
 }
 

@@ -101,11 +101,13 @@ export default function PodcastDetail({ podcast, genres }) {
                   </p>
                   <p className={styles.episodeDesc}>{ep.description}</p>
                 </div>
+
                 <FavouritesButton
                   episode={{
                     episodeId: episodeKey,
                     episodeNumber,
                     episodeTitle: ep.title,
+                    episodeDescription: ep.description,
                     showId: podcast.id,
                     showTitle: podcast.title,
                     seasonTitle: season.title,

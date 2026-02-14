@@ -66,8 +66,9 @@ export default function Favourites() {
                   <div className={styles.episodeCardTop}>
                     <p className={styles.epTitle}>{ep.episodeTitle}</p>
 
-                    <p className={styles.meta}>
-                      {ep.seasonTitle} • Episode {ep.episodeNumber}
+                    <p className={styles.meta}>Episode {ep.episodeNumber}</p>
+                    <p className={styles.episodeDesc}>
+                      {ep.episodeDescription}
                     </p>
 
                     <p className={styles.added}>
