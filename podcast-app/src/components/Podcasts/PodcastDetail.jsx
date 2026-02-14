@@ -109,6 +109,7 @@ export default function PodcastDetail({ podcast, genres }) {
                     showId: podcast.id,
                     showTitle: podcast.title,
                     seasonTitle: season.title,
+                    seasonImage: season.image,
                   }}
                 />
               </div>
