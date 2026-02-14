@@ -8,13 +8,22 @@ export default function Header() {
 
   return (
     <header className={styles.appHeader}>
-      <h1>
+      <h1 className={styles.logo}>
         <Link to="/">🎙️ SpeakEasy</Link>
       </h1>
-      <Link to="/Favourites">❤️ Favourites</Link>
-      <button onClick={toggleTheme} className={styles.themeToggle}>
-        {theme === "light" ? "🌙" : "☀️"}
-      </button>
+      <nav className={styles.nav}>
+        <Link to="/favourites" className={styles.favouritesLink}>
+          ❤️
+        </Link>
+
+        <button
+          onClick={toggleTheme}
+          className={styles.themeToggle}
+          type="button"
+        >
+          {theme === "light" ? "🌙" : "☀️"}
+        </button>
+      </nav>
     </header>
   );
 }
