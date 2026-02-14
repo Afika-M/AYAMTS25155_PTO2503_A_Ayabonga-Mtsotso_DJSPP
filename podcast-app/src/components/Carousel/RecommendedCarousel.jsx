@@ -23,9 +23,19 @@ export default function RecommendedCarousel({ podcasts }) {
   useEffect(() => {
     if (!podcasts || podcasts.length === 0) return;
 
+    const saved = localStorage.getItem("recommendedPodcasts");
+    if (saved) {
+      const savedRecommended = JSON.parse(saved);
+      setRecommended(savedRecommended);
+      return;
+    }
+
     const copy = [...podcasts];
     copy.sort(() => Math.random() - 0.5); // Shuffle the array
-    setRecommended(copy.slice(0, 12)); // Take the first 12 items
+    const picked = copy.slice(0, 12);
+
+    setRecommended(picked); // Take the first 12 items
+    localStorage.setItem("recommendedPodcasts", JSON.stringify(picked));
   }, [podcasts]);
 
   // scroll the carousel left or right when the respective button is clicked

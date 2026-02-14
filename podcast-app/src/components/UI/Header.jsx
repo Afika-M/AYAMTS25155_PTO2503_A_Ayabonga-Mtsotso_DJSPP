@@ -11,7 +11,7 @@ export default function Header() {
       <h1>
         <Link to="/">🎙️ SpeakEasy</Link>
       </h1>
-
+      <Link to="/Favourites">❤️ Favourites</Link>
       <button onClick={toggleTheme} className={styles.themeToggle}>
         {theme === "light" ? "🌙" : "☀️"}
       </button>

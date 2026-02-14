@@ -26,11 +26,11 @@
 }
 
 
-.carouselItem :global(img) {
+/*.carouselItem :global(img) {
   height: 180px;     
   object-fit: cover;
   display: block;
-}
+}*/
 
 .navButton {
   position: absolute;

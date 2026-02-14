@@ -1,0 +1,53 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.showGroup {
+  margin-top: 2rem;
+}
+
+.showGroup h2 {
+  margin-bottom: 1rem;
+}
+
+.episodeCard {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.added {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.play {
+  border: none;
+  background: #f2f2f2;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
