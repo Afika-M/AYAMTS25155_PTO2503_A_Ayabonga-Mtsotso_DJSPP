@@ -7,6 +7,7 @@ import styles from "./Favourites.module.css";
 export default function Favourites() {
   const { favourites, removeFavourite } = useContext(FavouritesContext);
   const navigate = useNavigate();
+  const [sortKey, setSortKey] = useState("date-desc");
 
   // group favourites by showTitle
   const grouped = useMemo(() => {
@@ -26,7 +27,7 @@ export default function Favourites() {
     return groups;
   }, [favourites]);
 
-  const showTitles = Object.keys(grouped);
+  const showTitles = Object.keys(grouped).sort();
 
   if (favourites.length === 0) {
     return (
@@ -48,8 +49,40 @@ export default function Favourites() {
 
       <h2 className={styles.title}>Favourite Episodes</h2>
 
+      {/* Sort dropdown ) */}
+      <div className={styles.sortEpisodes}>
+        <label className={styles.sortLabel}>
+          Sort by:
+          <select
+            className={styles.sortSelect}
+            value={sortKey}
+            onChange={(e) => setSortKey(e.target.value)}
+          >
+            <option value="date-desc">Newest Added</option>
+            <option value="date-asc">Oldest Added</option>
+            <option value="title-asc">Title A → Z</option>
+            <option value="title-desc">Title Z → A</option>
+          </select>
+        </label>
+      </div>
+
       {showTitles.map((showTitle) => {
-        const episodes = grouped[showTitle];
+        const episodes = [...grouped[showTitle]];
+
+        // Sort episodes based on sortKey
+
+        if (sortKey === "date-desc") {
+          console.log("sortKey:", sortKey);
+          console.log("sample episode:", episodes[0]);
+          console.log("addedAt parse:", Date.parse(episodes[0]?.addedAt));
+          episodes.sort((a, b) => new Date(b.addedAt) - new Date(a.addedAt));
+        } else if (sortKey === "date-asc") {
+          episodes.sort((a, b) => new Date(a.addedAt) - new Date(b.addedAt));
+        } else if (sortKey === "title-asc") {
+          episodes.sort((a, b) => a.episodeTitle.localeCompare(b.episodeTitle));
+        } else if (sortKey === "title-desc") {
+          episodes.sort((a, b) => b.episodeTitle.localeCompare(a.episodeTitle));
+        }
 
         return (
           <section key={showTitle} className={styles.group}>
@@ -61,7 +94,11 @@ export default function Favourites() {
             <div className={styles.episodeList}>
               {episodes.map((ep) => (
                 <div key={ep.episodeId} className={styles.episodeCard}>
-                  <img className={styles.seasonCover} src={ep.seasonImage} />
+                  <img
+                    className={styles.seasonCover}
+                    src={ep.seasonImage}
+                    alt={`${ep.showTitle} cover`}
+                  />
 
                   <div className={styles.episodeCardTop}>
                     <p className={styles.epTitle}>{ep.episodeTitle}</p>

@@ -65,7 +65,7 @@ export default function RecommendedCarousel({ podcasts }) {
 
   return (
     <section className={styles.carouselContainer}>
-      <h2>Recommended for You</h2>
+      <h3 className={styles.title}>Recommended for You</h3>
       <div className={styles.carousel} ref={carouselRef}>
         {recommended.map((podcast) => (
           <div key={podcast.id} className={styles.carouselItem}>
