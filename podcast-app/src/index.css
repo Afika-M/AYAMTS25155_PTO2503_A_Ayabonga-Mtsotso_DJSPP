@@ -8,7 +8,7 @@
   --hover-bg: #ffffff;
 }
 
-body [data-theme="dark"] {
+body[data-theme="dark"] {
   --grey-text: #94a3b8;
   --bg: #0b1220;
   --card-bg:#121c2f;
@@ -19,6 +19,7 @@ body [data-theme="dark"] {
 }
 
 body{
+  padding-bottom: 90px;
   font-family: "Inter", sans-serif;
   margin:0;
   background-color: var(--bg);

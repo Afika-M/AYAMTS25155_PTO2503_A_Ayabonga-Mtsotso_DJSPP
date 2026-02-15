@@ -1,6 +1,7 @@
 import { useContext, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { FavouritesContext } from "../context/FavouritesContext";
+import { AudioPlayerContext } from "../context/AudioPlayerContext";
 import { formatDate } from "../utils/formatDate";
 import styles from "./Favourites.module.css";
 
@@ -8,6 +9,8 @@ export default function Favourites() {
   const { favourites, removeFavourite } = useContext(FavouritesContext);
   const navigate = useNavigate();
   const [sortKey, setSortKey] = useState("date-desc");
+  const { playEpisode, toggle, currentEpisode, isPlaying } =
+    useContext(AudioPlayerContext);
 
   // group favourites by showTitle
   const grouped = useMemo(() => {
@@ -72,9 +75,6 @@ export default function Favourites() {
         // Sort episodes based on sortKey
 
         if (sortKey === "date-desc") {
-          console.log("sortKey:", sortKey);
-          console.log("sample episode:", episodes[0]);
-          console.log("addedAt parse:", Date.parse(episodes[0]?.addedAt));
           episodes.sort((a, b) => new Date(b.addedAt) - new Date(a.addedAt));
         } else if (sortKey === "date-asc") {
           episodes.sort((a, b) => new Date(a.addedAt) - new Date(b.addedAt));
@@ -120,6 +120,21 @@ export default function Favourites() {
                     aria-label="Remove favourite"
                   >
                     ❤️
+                  </button>
+                  <button
+                    className={styles.playBtn}
+                    type="button"
+                    onClick={() => {
+                      if (currentEpisode?.episodeId === ep.episodeId) {
+                        toggle(); // Toggle play/pause if the same episode is clicked
+                      } else {
+                        playEpisode(ep);
+                      }
+                    }}
+                  >
+                    {currentEpisode?.episodeId === ep.episodeId && isPlaying
+                      ? "⏸"
+                      : "▶️"}
                   </button>
                 </div>
               ))}

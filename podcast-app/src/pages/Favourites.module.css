@@ -115,7 +115,7 @@
 }
 
 
-.removeBtn {
+.removeBtn, .playBtn {
   background: none;
   flex:auto;
   border: none;
@@ -127,7 +127,7 @@
   transition: transform 0.15s ease, background 0.15s ease;
 }
 
-.removeBtn:hover {
+.removeBtn:hover, .playBtn:hover {
   transform: scale(1.1);
   background: rgba(0, 0, 0, 0.04);
 }

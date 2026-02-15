@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./PodcastDetail.module.css";
 import { formatDate } from "../../utils/formatDate";
 import GenreTags from "../UI/GenreTags";
 import FavouritesButton from "../UI/FavouritesButton";
+import { AudioPlayerContext } from "../../context/AudioPlayerContext";
 
 export default function PodcastDetail({ podcast, genres }) {
   const [selectedSeasonIndex, setSelectedSeasonIndex] = useState(0);
   const season = podcast.seasons[selectedSeasonIndex];
   const navigate = useNavigate(); // ← hook for navigation
+
+  const { playEpisode } = useContext(AudioPlayerContext);
 
   return (
     <div className={styles.container}>
@@ -16,7 +19,6 @@ export default function PodcastDetail({ podcast, genres }) {
       <button className={styles.backButton} onClick={() => navigate(-1)}>
         ← Back
       </button>
-
       {/* Header */}
       <div className={styles.header}>
         <img src={podcast.image} alt="Podcast Cover" className={styles.cover} />
@@ -55,7 +57,6 @@ export default function PodcastDetail({ podcast, genres }) {
           </div>
         </div>
       </div>
-
       {/* Season Details */}
       <div className={styles.seasonDetails}>
         <div className={styles.seasonIntro}>
@@ -102,8 +103,10 @@ export default function PodcastDetail({ podcast, genres }) {
                   <p className={styles.episodeDesc}>{ep.description}</p>
                 </div>
 
+                {/* Favourites Button */}
                 <FavouritesButton
                   episode={{
+                    url: ep.file,
                     episodeId: episodeKey,
                     episodeNumber,
                     episodeTitle: ep.title,
@@ -114,6 +117,27 @@ export default function PodcastDetail({ podcast, genres }) {
                     seasonImage: season.image,
                   }}
                 />
+
+                {/* Play Button */}
+
+                <button
+                  className={styles.playBtn}
+                  onClick={() =>
+                    playEpisode({
+                      url: ep.file,
+                      episodeId: episodeKey,
+                      episodeNumber,
+                      episodeTitle: ep.title,
+                      episodeDescription: ep.description,
+                      showId: podcast.id,
+                      showTitle: podcast.title,
+                      seasonTitle: season.title,
+                      seasonImage: season.image,
+                    })
+                  }
+                >
+                  ▶️
+                </button>
               </div>
             );
           })}
