@@ -150,7 +150,7 @@ src/
 First clone the repo then follow the following steps:
 ```
 git clone https://github.com/Afika-M/AYAMTS25155_PTO2503_A_Ayabonga-Mtsotso_DJSPP.git
-cd AYAMTS25155_PTO2503_A_Ayabonga-Mtsotso_JSLPP
+cd AYAMTS25155_PTO2503_A_Ayabonga-Mtsotso_DJSPP
 ```
 
 Open index.html in your browser.
