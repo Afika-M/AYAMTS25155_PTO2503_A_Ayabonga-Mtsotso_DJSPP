@@ -5,7 +5,27 @@ import { formatDate } from "../../utils/formatDate";
 import GenreTags from "../UI/GenreTags";
 import FavouritesButton from "../UI/FavouritesButton";
 import { AudioPlayerContext } from "../../context/AudioPlayerContext";
+/**
+ * Displays detailed information about a single podcast, including its seasons and episodes.
+ *
+ * Props:
+ * - podcast: The podcast data object containing details like title, description, image, genres, seasons, etc.
+ * - genres: An array of genre objects to map genre IDs to their titles for display.
+ *
+ * Features:
+ * - Shows podcast cover image, title, description, genres, last updated date, total seasons and episodes.
+ * - Allows selecting different seasons from a dropdown to view their episodes.
+ * - Each episode card includes a play button to start streaming and a favourites button to save it.
+ * - A back button at the top allows returning to the previous page.
+ *
+ * @param {Object} props
+ * @param {Object} props.podcast - The podcast data object to display.
+ * @param {Array<Object>} props.genres - Array of genre objects for mapping IDs to titles.
+ *
+ * @returns {JSX.Element} The rendered podcast detail component.
+ */
 
+// Helper function to format the last updated date in a human-readable format
 export default function PodcastDetail({ podcast, genres }) {
   const [selectedSeasonIndex, setSelectedSeasonIndex] = useState(0);
   const season = podcast.seasons[selectedSeasonIndex];
@@ -119,7 +139,6 @@ export default function PodcastDetail({ podcast, genres }) {
                 />
 
                 {/* Play Button */}
-
                 <button
                   className={styles.playBtn}
                   onClick={() =>

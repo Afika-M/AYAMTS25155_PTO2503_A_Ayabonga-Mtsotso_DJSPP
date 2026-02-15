@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { fetchPodcasts } from "../api/fetchPata";
+import { fetchPodcasts } from "../api/fetchData";
 
 /**
  * React context for managing podcast-related state and filters.
@@ -41,6 +41,7 @@ export const SORT_OPTIONS = [
  * @param {Object} props
  * @param {React.ReactNode} props.children - Child components that consume the context.
  * @returns {JSX.Element} Provider wrapping the application content.
+ *
  */
 export function PodcastProvider({ children }) {
   const [allPodcasts, setAllPodcasts] = useState([]);

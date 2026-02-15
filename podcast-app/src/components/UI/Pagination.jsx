@@ -4,6 +4,12 @@ import styles from "./Pagination.module.css";
 
 /**
  * Numeric pagination bar.
+ * - Uses PodcastContext to get current page, total pages, and setPage function.
+ * - Renders a button for each page, highlighting the active one.
+ * - Clicking a button updates the current page in context, triggering data fetch for that page.
+ *
+ * @returns {JSX.Element|null} A pagination bar with buttons for each page, or null if only one page exists.
+ *
  */
 export default function Pagination() {
   const { page, setPage, totalPages } = useContext(PodcastContext);

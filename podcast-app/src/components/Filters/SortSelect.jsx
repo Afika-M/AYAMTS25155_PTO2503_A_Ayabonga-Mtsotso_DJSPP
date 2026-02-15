@@ -4,6 +4,10 @@ import styles from "./SortSelect.module.css";
 
 /**
  * Dropdown for choosing sort order.
+ * - Uses PodcastContext to get and set the current sort key.
+ * - Renders options defined in SORT_OPTIONS.
+ *
+ * @returns {JSX.Element} A select element for sorting podcasts by different criteria.
  */
 export default function SortSelect() {
   const { sortKey, setSortKey } = useContext(PodcastContext);

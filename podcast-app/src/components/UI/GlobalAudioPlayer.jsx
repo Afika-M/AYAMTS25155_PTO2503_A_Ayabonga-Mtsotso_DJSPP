@@ -13,12 +13,13 @@ import styles from "./GlobalAudioPlayer.module.css";
  * It listens to the AudioPlayerContext for changes in the current episode and playback state, allowing users to control audio playback from anywhere in the app.
  */
 
+// Helper function to format time in mm:ss format
 function formatTime(seconds) {
   const mins = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
   return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
 }
-
+// GlobalAudioPlayer component definition
 export default function GlobalAudioPlayer() {
   const { currentEpisode, isPlaying, toggle, currentTime, duration, seek } =
     useContext(AudioPlayerContext);

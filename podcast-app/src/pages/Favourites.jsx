@@ -5,6 +5,15 @@ import { AudioPlayerContext } from "../context/AudioPlayerContext";
 import { formatDate } from "../utils/formatDate";
 import styles from "./Favourites.module.css";
 
+/**
+ * Favourites page component that displays the user's favourited podcast episodes.
+ * - Groups episodes by show title and allows sorting by date added or title.
+ * - Each episode card includes a play button to start streaming and a remove button to unfavourite it.
+ * - A back button at the top allows returning to the previous page.
+ *
+ * @returns {JSX.Element} The rendered favourites page component.
+ */
+
 export default function Favourites() {
   const { favourites, removeFavourite } = useContext(FavouritesContext);
   const navigate = useNavigate();

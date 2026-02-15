@@ -4,6 +4,11 @@ import styles from "./SearchBar.module.css";
 
 /**
  * Search input with debounced update.
+ * - Manages local input state for immediate responsiveness.
+ * - Updates global search state in PodcastContext after a 300ms delay.
+ * - Prevents excessive re-renders while typing.
+ *
+ * @returns {JSX.Element} A search input field for filtering podcasts by title or description.
  */
 export default function SearchBar() {
   const { search, setSearch } = useContext(PodcastContext);

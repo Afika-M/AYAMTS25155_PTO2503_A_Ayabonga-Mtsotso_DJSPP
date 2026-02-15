@@ -1,5 +1,32 @@
 import { createContext, useEffect, useRef, useState } from "react";
 
+/**
+ * React context for managing audio playback state across the app.
+ * Provides functions to play, pause, resume, toggle, and seek episodes, as well as state for the current episode, playback status, and timing.
+ *
+ * @typedef {Object} Episode
+ * @property {string} url - The URL of the audio file.
+ * @property {string} episodeId - The unique identifier for the episode.
+ * @property {number} episodeNumber - The number of the episode within its season.
+ * @property {string} episodeTitle - The title of the episode.
+ * @property {string} episodeDescription - A description of the episode.
+ * @property {string} showId - The unique identifier for the podcast show.
+ * @property {string} showTitle - The title of the podcast show.
+ * @property {string} seasonTitle - The title of the season.
+ * @property {string} seasonImage - The URL of the season's cover image.
+ *
+ * @typedef {Object} AudioPlayerContextValue
+ * @property {Episode|null} currentEpisode - The currently playing episode, or null if no episode is selected.
+ * @property {boolean} isPlaying - Whether the audio is currently playing.
+ * @property {number} currentTime - The current playback time in seconds.
+ * @property {number} duration - The total duration of the current episode in seconds.
+ * @property {function(Episode): void} playEpisode - Function to start playing a given episode.
+ * @property {function(): void} pauseEpisode - Function to pause the currently playing episode.
+ * @property {function(): void} resumeEpisode - Function to resume playback of the currently paused episode.
+ * @property {function(): void} toggle - Function to toggle between play and pause states.
+ * @property {function(number): void} seek - Function to seek to a specific time in the current episode.
+ */
+
 export const AudioPlayerContext = createContext(null);
 
 export function AudioPlayerProvider({ children }) {

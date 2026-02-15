@@ -25,6 +25,7 @@ import { useContext } from "react";
  * - Consumes `PodcastContext` to access podcast data, loading, and error states.
  *
  * @returns {JSX.Element} The home page content with filters, results, and feedback states.
+ *
  */
 export default function Home() {
   const { podcasts, allPodcasts, loading, error } = useContext(PodcastContext);
