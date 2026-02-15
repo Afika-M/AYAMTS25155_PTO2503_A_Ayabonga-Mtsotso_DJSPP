@@ -43,7 +43,7 @@ export default function RecommendedCarousel({ podcasts }) {
     const el = carouselRef.current;
     if (!el) return;
 
-    const scrollAmount = el.offsetWidth * 0.8;
+    const scrollAmount = el.offsetWidth * 0.5; // Scroll by half the visible width
     const maxScroll = el.scrollWidth - el.clientWidth;
 
     if (direction === "right") {

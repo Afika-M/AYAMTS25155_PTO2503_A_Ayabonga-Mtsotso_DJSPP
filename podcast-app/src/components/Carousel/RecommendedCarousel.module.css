@@ -39,14 +39,24 @@ h3 {
 
 .navButton {
   position: absolute;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
   border: none;
   cursor: pointer;
   padding: 0.5rem 0.75rem;
   border-radius: 999px;
+  background-color: var(--card-bg);
+  color: var(--text);
 }
 
 .left { left: -10px; }
 .right { right: -10px; }
 
+/*Responsive adjustments
+@media (max-width: 600px) {
+  .carouselItem {
+    width: 60%;
+    flex: 0 0 auto;
+  }
+}
+*/
