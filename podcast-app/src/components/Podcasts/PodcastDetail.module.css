@@ -64,9 +64,8 @@ strong {
 }
 
 .description {
-  color: #444;
-  margin-bottom: 1rem;
   color: var(--grey-text);
+  margin-bottom: 1rem;
 }
 
 .genres {
@@ -78,7 +77,7 @@ strong {
 }
 
 .genreBadge {
-  background-color: #e5e7eb;
+  background-color: var(--tag-bg);
   padding: 0.3rem 0.75rem;
   border-radius: 9999px;
   font-size: 0.85rem;
@@ -128,7 +127,10 @@ strong {
 .dropdown {
   padding: 0.4rem 0.6rem;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  cursor: pointer;
   min-width: 140px;
   height: 40px;
   order: 2;
@@ -170,9 +172,9 @@ strong {
 
 .episodeCard:hover {
   transform: translateY(-4px);
-  background: #ffffff;
+  background: var(--card-bg);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  border-color: #d1d5db;
+  border-color: var(--border);
 }
 .episodeInfo {
   margin-left: 10px;

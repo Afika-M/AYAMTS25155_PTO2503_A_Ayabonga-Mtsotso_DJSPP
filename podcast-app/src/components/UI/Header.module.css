@@ -5,11 +5,12 @@
   gap: 1rem;
   padding: 1rem 1rem;
   background: var(--card-bg);
-  color: var(--text-color);
+  color: var(--text);
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
+  color: var(--text);
   font-size: 1.4rem;
   margin: 0;
 }
@@ -33,5 +34,5 @@
 
 .appHeader a {
   text-decoration: none;
-  color: black;
+  color: var(--text);
 }

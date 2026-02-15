@@ -50,7 +50,7 @@ export default function Favourites() {
         ← Back
       </button>
 
-      <h2 className={styles.title}>Favourite Episodes</h2>
+      <h3 className={styles.title}>Favourite Episodes</h3>
 
       {/* Sort dropdown ) */}
       <div className={styles.sortEpisodes}>
