@@ -89,7 +89,7 @@ This project consumes data from:
 
 ---
 
-## 🗂️ Project Structure (High Level)
+## 🗂️ Project Structure
 
 ```txt
 src/
