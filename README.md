@@ -1,104 +1,215 @@
-# 🎧 DJS Portfolio Piece – Podcast App (React)
+# 🎙️ SpeakEasy
 
-## 📋 Overview
+SpeakEasy is a polished, production-ready React podcast app built as the final phase of the DJS course.  
 
-In this final phase, you will enhance the podcast app you've been building throughout the DJS course. The app already includes a landing page with searchable, sortable, and filterable podcast previews, as well as a show detail page with season toggling.
+It allows users to browse podcast shows, search/filter/sort results, view show details by season, favourite episodes for later, and play episode audio with a **global audio player** that persists across page navigation.
 
-This project introduces key new features including global audio playback, favouriting episodes, deployment best practices, UI enhancements, and optional listening progress tracking.
-
-Your goal is to build a polished, production-ready React application that offers an engaging and seamless user experience.
-
-> **Tip:** You are encouraged to explore the React ecosystem to help implement features efficiently.
-
-## 🎯 Objectives
-
-- Implement a global audio player with full playback control
-- Add support for favouriting episodes with persistent storage
-- Introduce a recommended shows carousel on the landing page
-- Support theme toggling (light/dark mode)
-- Ensure robust routing and deploy the app with professional polish
-- Optionally track listening progress across episodes and sessions
-
-## 🚀 Core Features & User Stories
-
-### 🛠️ Setup and Deployment
-
-- Deploy your app to **Vercel** using a **custom domain or URL**
-- Add a **custom favicon** for easy identification in browser tabs
-- Use tools like [metatags.io](https://metatags.io) to set **rich social media preview metadata**
-- Ensure that direct access to dynamic routes (e.g. `/show/1`) works correctly (SPA routing fallback)
-
-### 🔊 Global Audio Player
-
-- Play audio using the provided **placeholder API**
-- Keep the player **fixed at the bottom** of the screen across all pages
-- Ensure **uninterrupted playback** when navigating between pages
-- Provide **play, pause, seek, and progress tracking**
-- Add a **confirmation prompt** on page reloads during playback
-
-### ❤️ Favourites
-
-- Allow users to **favourite or unfavourite episodes** via a button/icon
-- Use **localStorage** to persist favourites across sessions
-- Provide **visual feedback** for favourited items (e.g., filled heart)
-- Create a **favourites page** displaying all saved episodes
-- Display **associated show and season** for each favourite
-- Show the **date/time added** to favourites
-- **Group favourites by show title**
-- Add **sorting options**:
-  - A–Z / Z–A by title
-  - Newest / Oldest by date added
-
-### 🎠 Recommended Shows Carousel
-
-- Add a **horizontally scrollable carousel** to the landing page
-- Show each show’s **image, title, and genre tags**
-- Support **looping** and navigation via **swipe or arrows**
-- Clicking a carousel item should navigate to the **show’s detail page**
-
-### 🌗 Theme Toggle
-
-- Include a **toggle** for switching between light and dark mode
-- **Persist theme selection** using `localStorage`
-- Ensure the **entire app UI updates smoothly**
-- Use **appropriate icons** (e.g., sun/moon) to indicate current theme
-- Reflect selected theme across all views and components
-
-## 🌟 Stretch Goal – Listening Progress (Optional)
-
-- Save playback position per episode and **resume playback**
-- Mark episodes as **"finished"** once fully played
-- Display **progress indicators** for episodes in progress
-- Allow users to **reset listening history**
-- Save listening history in local storage
-
-## ✅ Deliverables
-
-- A fully functional and deployed podcast app
-- Source code in **GitHub** with clear commit history
-- Live demo link (**Vercel**)
-- (Optional) Short demo video
-
-## 💡 Tips
-
-- Prioritise **user experience** and **clean component structure**
-- Use **React best practices** (components, hooks, state management)
-- Ensure the app is **responsive** and **mobile-friendly**
-- Test localStorage and audio persistence thoroughly
-- Make use of the **React ecosystem** to accelerate development!
+Deployed on Vercel → _[Live Demo](https://speakeasyapp.vercel.app/)_
 
 ---
 
-## 🧑‍⚖️ Panel Review
+## 🚀 Live Demo
 
-After submitting your project, you will be required to present your work to a coach or panel of coaches.
+- **Live App (Vercel):** _[speakeasyapp](https://speakeasyapp.vercel.app/)_
+- **GitHub Repo:** _[DJS Portfolio Piece](https://github.com/Afika-M/AYAMTS25155_PTO2503_A_Ayabonga-Mtsotso_DJSPP)_
 
-During this session, you must:
+---
 
-- **Demonstrate** all the features you have implemented in your application.
-- **Explain** how each feature was built, referring directly to your code (e.g., components, state, hooks, storage).
-- Discuss the **decisions** you made during development (e.g., choice of libraries, structure, naming conventions).
-- Break down the **logic** behind key functionalities (e.g., how audio persistence or favouriting works).
-- Be prepared to answer **questions** from the coaches about your project, code structure, and implementation choices.
+## ✨ Features
 
-This is your opportunity to showcase both your technical and problem-solving skills—treat it like a real-world project revsiew.
+### 🏠 Landing Page (Browse Shows)
+- View podcast previews in a grid
+- **Search** shows by title
+- **Filter** shows by genre
+- **Sort** shows (e.g. newest/oldest)
+- Pagination support
+
+### 🎧 Show Detail Page
+- View a specific show with full details
+- Toggle between seasons using a dropdown
+- View episodes in the selected season
+
+### 🔊 Global Audio Player
+- Plays audio using the API’s placeholder audio URL
+- Player remains fixed at the bottom across all pages after playing
+- Audio continues playing when navigating between routes
+- Playback controls:
+  - Play / Pause
+  - Seek using a progress slider
+  - Current time / duration display
+- Confirmation prompt when reloading/leaving during playback
+
+### ❤️ Favourites
+- Favourite / unfavourite episodes via a heart button
+- Favourites persist using **localStorage**
+- Favourites page displays:
+  - Episodes grouped by **show title**
+  - Season + episode number
+  - Date/time added to favourites
+  - Episode description + season image
+- Sorting options:
+  - **Title A–Z / Z–A**
+  - **Newest / Oldest** by date added
+
+### 🎠 Recommended Shows Carousel
+- Horizontally scrollable carousel on the landing page
+- Displays show image, title, and genre tags
+- Navigation via arrows 
+- Clicking a carousel show navigates to the show detail page
+
+### 🌗 Theme Toggle
+- Light / Dark mode toggle
+- Theme preference persists with **localStorage**
+- Uses CSS variables for consistent theming across the app
+
+### ✅ Deployment & Routing Polish
+- Deployed to Vercel
+- Favicon + metadata 
+
+---
+
+## 🧠 Tech Stack
+- **React** (Vite)
+- **React Router**
+- **Context API** (global state: podcasts, favourites, audio player, theme)
+- **CSS Modules** (component-scoped styling)
+- **localStorage** (persist favourites + theme)
+- **Vercel(Hosting)**
+
+---
+
+## 📡 API Used
+This project consumes data from:
+
+- **All podcasts:** `https://podcast-api.netlify.app`
+- **Single show:** `https://podcast-api.netlify.app/id/:id`
+- **Placeholder audio:** `https://podcast-api.netlify.app/placeholder-audio.mp3`
+
+> Note: Episodes use the API’s placeholder audio file. Episode uniqueness is handled in-app using a generated key (e.g. show + season + episode number) when needed.
+
+---
+
+## 🗂️ Project Structure (High Level)
+
+```txt
+src/
+│── api/
+│   └── fetchPata.js
+│── components/
+|   ├── index.js
+│   ├── Carousel/
+|   |   ├── index.js
+│   │   ├── RecommendedCarousel.jsx
+│   │   └── RecommendedCarousel.module.css
+│   ├── Podcasts/
+|   |   ├── index.js
+│   │   ├── PodcastCard.jsx
+|   |   ├── PodcastCard.module.css
+│   │   ├── PodcastGrid.jsx
+|   |   ├── PodcastGrid.module.css
+|   |   ├── PodcastDetail.jsx
+│   │   └── PodcastDetail.module.css
+│   └── UI/
+|       ├── index.js
+│       ├── Header.jsx
+|       ├── Header.module.css
+|       ├── FavouritesButton.jsx
+│       ├── FavouritesButton.module.css
+│       ├── Error.jsx
+│       ├── Error.module.css
+│       ├── GlobalAudioPlayer.jsx
+│       ├── GlobalAudioPlayer.nodule.css
+│       ├── Loading.jsx
+│       ├── Loading.module.css
+│       ├── Pagination.jsx
+│       ├── Pagination.module.css
+│       ├── GenreTags.jsx
+│       └── GenreTags.module.css
+│── context/
+│   ├── PodcastContext.jsx
+│   ├── ThemeContext.jsx
+│   ├── FavouritesContext.jsx
+│   └── AudioPlayerContext.jsx
+│── pages/
+│   ├── Home.jsx
+|   ├── Home.module.css
+│   ├── ShowDetail.jsx
+|   ├── Favourites.jsx
+│   └── Favourites.module.css
+│── utils/
+│   └── formatDate.js
+│── index.css
+│── main.jsx
+|── data.js
+└── App.jsx
+```
+---
+
+## ⚙️ Getting Started (Local Setup)
+
+First clone the repo then follow the following steps:
+```
+git clone https://github.com/Afika-M/AYAMTS25155_PTO2503_A_Ayabonga-Mtsotso_DJSPP.git
+cd AYAMTS25155_PTO2503_A_Ayabonga-Mtsotso_JSLPP
+```
+
+Open index.html in your browser.
+
+##### 1) Install dependencies
+```bash
+npm install
+```
+
+##### 2) Run the dev server
+```bash
+npm run dev
+```
+##### 3) Build for production
+```bash
+npm run build
+```
+##### 4) Preview the production build
+```bash 
+npm run preview
+```
+---
+
+## 🌍 Deployment (Vercel)
+
+1. Push code to GitHub
+
+2. Go to Vercel → New Project
+
+3. Import your GitHub repo
+
+4. Deploy
+
+5. Configure custom domain / URL
+
+## 🧪 Key Implementation Notes
+**Global Audio Player (Persistence Across Pages)**
+
+The audio player state lives in a Context provider at a high level in the app tree.
+This allows:
+- playback to keep running even when switching routes
+- a single “source of truth” for current episode + playback progress
+
+**Favourites Persistence**
+
+Favourites are stored in Context and synced to localStorage.
+
+Each favourite includes metadata like:
+- show title, season title, episode number
+
+- timestamp (addedAt) to support sorting
+
+**Theme System**
+The theme is stored in state + persisted in localStorage.
+The UI updates via CSS variables applied using data-theme on the body.
+
+---
+
+### 👤 Author
+Built by Ayabonga Mtsotso as part of the DJS course final phase.
+
+---
